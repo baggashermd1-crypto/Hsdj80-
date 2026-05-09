@@ -122,7 +122,7 @@ ${menuSections}
 
         // Determine which image to use
         let imageToUse;
-        const localImagePath = path.join(__dirname, '../lib/jawadmd.jpg');
+        const localImagePath = path.join(__dirname, '../lib/bot.png');
         
         // Check if BOT_IMAGE is a valid image URL
         if (isValidImageUrl(BOT_IMAGE)) {
@@ -141,6 +141,7 @@ ${menuSections}
             imageToUse = localImagePath;
         }
 
+        // Send menu image with caption
         await conn.sendMessage(from, { 
             image: { url: imageToUse },
             caption: dec, 
@@ -155,6 +156,26 @@ ${menuSections}
                 } 
             } 
         }, { quoted: mek });
+
+        // Send love.mp3 audio after menu (with small delay)
+        setTimeout(async () => {
+            try {
+                const audioPath = path.join(__dirname, '../lib/love.mp3');
+                
+                // Check if audio file exists
+                if (fs.existsSync(audioPath)) {
+                    await conn.sendMessage(from, {
+                        audio: { url: audioPath },
+                        mimetype: 'audio/mpeg',
+                        ptt: false  // Set to true if you want as voice note
+                    }, { quoted: mek });
+                } else {
+                    console.log('love.mp3 not found at:', audioPath);
+                }
+            } catch (audioError) {
+                console.log('Error sending audio:', audioError);
+            }
+        }, 1000); // 1 second delay after menu
 
     } catch (e) { 
         console.log(e); 

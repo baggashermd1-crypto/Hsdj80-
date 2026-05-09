@@ -1,5 +1,3 @@
-// JawadTech
-
 const { cmd } = require('../command');
 const config = require('../config');
 

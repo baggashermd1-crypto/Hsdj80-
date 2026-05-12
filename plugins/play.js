@@ -108,7 +108,7 @@ cmd({
 *│❀ 📁 𝐅𝐨𝐫𝐦𝐚𝐭:* mp3
 *│❀ ⚙️ 𝐒𝐭𝐚𝐭𝐮𝐬:* Downloading...
 *╰┄─̣┄─̇─̣┄─̇─̣┄─̇─̣┄─̇─̣─̇─̣─᛭*
-> ᴘᴏᴡᴇʀᴇᴅ ʙʏ LOVE-ᎷᎠ`
+> ᴘᴏᴡᴇʀᴇᴅ ʙʏ BAGGA-SHER-MD`
 
         await conn.sendMessage(from, {
             image: { url: vid.thumbnail },

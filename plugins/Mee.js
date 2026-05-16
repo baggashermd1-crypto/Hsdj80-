@@ -22,7 +22,7 @@ const voiceClips = [
     'https://files.catbox.moe/md2jm5.mp3',
     'https://files.catbox.moe/ypx92a.mp3',
     'https://files.catbox.moe/7tv2do.mp3',
-    'https://files.catbox.moe/sr8k3y.mp3'
+    'https://files.catbox.moe/jm3422.mp3'
 ];
 
 // Fixed delay of 3 seconds

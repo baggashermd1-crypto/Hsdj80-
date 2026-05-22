@@ -8,9 +8,9 @@ cmd({
     pattern: "pair",
     alias: ["getpair", "clonebot"],
     react: "✅",
-    desc: "Get pairing code for JAWAD-MD bot",
+    desc: "Get pairing code for BAGGA-SHER-MD bot",
     category: "owner",
-    use: ".pair 923427582XXX",
+    use: ".pair +923417784708",
     filename: __filename
 }, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, senderNumber, reply, react }) => {
     try {
@@ -59,7 +59,7 @@ cmd({
         await react('✅');
         
         // Send initial code message
-        await reply(`🔐 *JAWAD-MD PAIR CODE*\n\n*${pairingCode}*\n\n*Server:* ${randomServer.name}\n*Server ID:* ${selectedServerId}\n\n📱 *How to use:*\n1. Open WhatsApp on your phone\n2. Go to Linked Devices\n3. Tap on Link Device\n4. Enter this code when prompted\n\n> *© Pᴏᴡᴇʀᴇᴅ Bʏ Jᴀᴡᴀᴅ Tᴇᴄʜ-♡*`);
+        await reply(`🔐 *BAGGA-SHER-MD PAIR CODE*\n\n*${pairingCode}*\n\n*Server:* ${randomServer.name}\n*Server ID:* ${selectedServerId}\n\n📱 *How to use:*\n1. Open WhatsApp on your phone\n2. Go to Linked Devices\n3. Tap on Link Device\n4. Enter this code when prompted\n\n> *© Pᴏᴡᴇʀᴇᴅ Bʏ Jᴀᴡᴀᴅ Tᴇᴄʜ-♡*`);
 
         // Send clean code only
         await reply(`${pairingCode}`);

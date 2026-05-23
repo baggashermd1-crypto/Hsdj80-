@@ -8,15 +8,15 @@ const axios = require('axios');
 // VoiceClip urls
 const voiceClips = [
     'https://files.catbox.moe/mue5qh.mp3',
-    'https://files.catbox.moe/mue5qh.mp3',
+    'https://files.catbox.moe/cfdepf.mp3',
     'https://files.catbox.moe/xut85z.mp3',
-    'https://files.catbox.moe/wy81yv.mp3',
+    'https://files.catbox.moe/rb2zik.mp3',
     'https://files.catbox.moe/vkk1l1.mp3',
     'https://files.catbox.moe/7r9jfk.mp3',
     'https://files.catbox.moe/9zkeyd.mp3',
     'https://files.catbox.moe/9beb95.mp3',
     'https://files.catbox.moe/c0iivb.mp3',
-    'https://files.catbox.moe/zdrgk0.mp3',
+    'https://files.catbox.moe/wy81yv.mp3',
     'https://files.catbox.moe/zdrgk0.mp3',
     'https://files.catbox.moe/g9189o.mp3',
     'https://files.catbox.moe/c9byvq.mp3',

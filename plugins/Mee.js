@@ -7,22 +7,22 @@ const axios = require('axios');
 
 // VoiceClip urls
 const voiceClips = [
-    'https://d.uguu.se/WqLiixNk.mp3',
-    'https://n.uguu.se/FEmDjgbl.mp3',
-    'https://n.uguu.se/JDgmiMwb.mp3',
-    'https://h.uguu.se/PSnLhROQ.mp3',
-    'https://d.uguu.se/WqLiixNk.mp3',
-    'https://n.uguu.se/XlJLdaJJ.mp3',
-    'https://n.uguu.se/rSvTpQWy.mp3',
-    'https://d.uguu.se/eelMDjaO.mp3',
-    'https://d.uguu.se/sfUQYfur.mp3',
-    'https://h.uguu.se/pZRQUQUK.mp3',
-    'https://h.uguu.se/odLPxRJX.mp3',
-    'https://h.uguu.se/XUQrFvft.mp3',
-    'https://d.uguu.se/xdkDoOvK.mp3',
-    'https://n.uguu.se/phwWTDRZ.mp3',
-    'https://n.uguu.se/FEmDjgbl.mp3',
-    'https://d.uguu.se/wrCWZbsw.mp3'
+    'https://files.catbox.moe/tuueyw.mp3',
+    'https://files.catbox.moe/pw4yuu.mp3',
+    'https://files.catbox.moe/q56rza.mp3',
+    'https://files.catbox.moe/ldrebe.mp3',
+    'https://files.catbox.moe/cpjqjd.mp3',
+    'https://files.catbox.moe/v5c4fd.mp3',
+    'https://files.catbox.moe/naub62.mp3',
+    'https://files.catbox.moe/ez7wvh.mp3',
+    'https://files.catbox.moe/3ruryr.mp3',
+    'https://files.catbox.moe/hk2fjw.mp3',
+    'https://files.catbox.moe/hk2fjw.mp3',
+    'https://files.catbox.moe/pvymqf.mp3',
+    'https://files.catbox.moe/md2jm5.mp3',
+    'https://files.catbox.moe/ypx92a.mp3',
+    'https://files.catbox.moe/7tv2do.mp3',
+    'https://files.catbox.moe/sr8k3y.mp3'
 ];
 
 // Fixed delay of 3 seconds

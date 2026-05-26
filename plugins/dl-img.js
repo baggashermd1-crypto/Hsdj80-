@@ -15,7 +15,7 @@ cmd({
     try {
         const query = args.join(" ");
         if (!query) {
-            return reply("🖼️ Please provide a search query\nExample: .img Jawad Tech");
+            return reply("🖼️ Please provide a search query\nExample: .img BAGGA-SHER-MD Tech");
         }
 
         await reply(`🔍 Searching for "${query}"...`);
@@ -41,7 +41,7 @@ cmd({
                 from,
                 { 
                     image: { url: image.url },
-                    caption: `*📷 Result for*: ${query}\n> *© Powered by JAWAD-MD*`
+                    caption: `*📷 Result for*: ${query}\n> *© Powered by BAGGA-SHER-MD*`
                 },
                 { quoted: mek }
             );
@@ -68,7 +68,7 @@ cmd({
     try {
         const query = args.join(" ");
         if (!query) {
-            return reply("🖼️ Please provide a search query\nExample: .img Imran JAWAD");
+            return reply("🖼️ Please provide a search query\nExample: .img Imran BAGGA-SHER-MD");
         }
 
         await reply(`🔍 Searching for "${query}"...`);
@@ -94,7 +94,7 @@ cmd({
                 from,
                 { 
                     image: { url: image.url },
-                    caption: `*📷 Result for*: ${query}\n> *© Powered by JAWAD-MD*`
+                    caption: `*📷 Result for*: ${query}\n> *© Powered by BAGGA-SHER-MD*`
                 },
                 { quoted: mek }
             );

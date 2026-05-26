@@ -1,4 +1,4 @@
-// LOVE-MDD 
+// LOVE-MD 
 
 const { cmd } = require("../command");
 const axios = require("axios");

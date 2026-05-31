@@ -2,71 +2,61 @@ const { cmd, commands } = require('../command');
 const axios = require('axios');
 
 // Your Vercel API base URL
-const API_BASE_URL = 'https://baggashar.vercel.app/api';
+const API_BASE_URL = 'https://bagga-sher-md.vercel.app/api'; // Added /api prefix
 
 cmd({
     pattern: "pair",
     alias: ["getpair", "clonebot"],
     react: "✅",
-    desc: "Get pairing code for BAGGA-SHER-MD bot",
+    desc: "Get pairing code for Love-MD bot",
     category: "owner",
-    use: ".pair +923417784708",
+    use: ".pair 923306137477",
     filename: __filename
-}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, senderNumber, reply, react }) => {
+}, async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, senderNumber, reply }) => {
     try {
-        // Send processing reaction
-        await react('⏳');
-        
         // Extract phone number from command
         const phoneNumber = q ? q.trim().replace(/[^0-9]/g, '') : senderNumber.replace(/[^0-9]/g, '');
 
         // Validate phone number format
         if (!phoneNumber || phoneNumber.length < 10 || phoneNumber.length > 15) {
-            await react('❌');
-            return await reply("❌ Please provide a valid phone number without +\nExample: .pair 923427582XXX");
+            return await reply("❌ Please provide a valid phone number without +\nExample: .pair 923306137");
         }
 
-        // Fetch all servers from API
-        const serversResponse = await axios.get(`${API_BASE_URL}/servers`, { timeout: 10000 });
+        // Get random server from your Vercel API
+        const randomResponse = await axios.get(`${API_BASE_URL}/random`, { timeout: 5000 });
         
-        if (!serversResponse.data || !serversResponse.data.servers) {
-            await react('❌');
-            return await reply("❌ *Failed to fetch server list!*");
+        if (!randomResponse.data || !randomResponse.data.server) {
+            return await reply("❌ Failed to get available server. Please try again.");
         }
+
+        const selectedServer = randomResponse.data.server;
         
-        const servers = serversResponse.data.servers;
-        
-        // Select random server from the list
-        const randomServer = servers[Math.floor(Math.random() * servers.length)];
-        const selectedServerId = randomServer.id;
-        const selectedServerUrl = randomServer.url;
-        
-        // Make DIRECT request to the external server's /code endpoint
-        const response = await axios.get(`${selectedServerUrl}/code`, {
+        // Make API request to get pairing code through your Vercel API
+        const response = await axios.get(`${API_BASE_URL}/code`, {
             params: { 
+                server: selectedServer, 
                 number: phoneNumber 
             },
             timeout: 20000
         });
 
         if (!response.data || !response.data.code) {
-            await react('❌');
             return await reply("❌ Failed to retrieve pairing code. Please try again later.");
         }
 
         const pairingCode = response.data.code;
         
-        await react('✅');
-        
         // Send initial code message
-        await reply(`🔐 *BAGGA-SHER-MD PAIR CODE*\n\n*${pairingCode}*\n\n*Server:* ${randomServer.name}\n*Server ID:* ${selectedServerId}\n\n📱 *How to use:*\n1. Open WhatsApp on your phone\n2. Go to Linked Devices\n3. Tap on Link Device\n4. Enter this code when prompted\n\n> *© Pᴏᴡᴇʀᴇᴅ Bʏ Jᴀᴡᴀᴅ Tᴇᴄʜ-♡*`);
+        await reply(`🔐 *LOVE-MD PAIR CODE*\n\n${pairingCode}\n\nServer: ${selectedServer}\n\n📱 *How to use:*\n1. Open WhatsApp on your phone\n2. Go to Linked Devices\n3. Tap on Link Device\n4. Enter this code when prompted`);
 
-        // Send clean code only
+        // Optional 2-second delay
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // Send clean code again
         await reply(`${pairingCode}`);
 
     } catch (error) {
         console.error("Pair command error:", error);
-        await react('❌');
         await reply("❌ An error occurred while getting pairing code. Please try again later.");
     }
 });
